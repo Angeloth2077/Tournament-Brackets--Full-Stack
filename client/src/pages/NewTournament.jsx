@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './../styles/register.css'
 
 export default function NewTournament() {
     const initialValues = {
@@ -41,22 +42,66 @@ export default function NewTournament() {
                 <Form>
                     <label>Player 1</label>
                     <br />
-                    <Field id='inputPlayer1' name='name1' placeholder='Oe'/>
+                    <div className = 'input-container'>
+                        <Field
+                            className='inputPlayer1 input'
+                            name='name1'
+                            placeholder='Oe'
+                            onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                            onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onMouseLeave={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                        />
+                        <div className='py'></div>
+                    </div>
                     <ErrorMessage name="name1" component='span'/>
                     <br />
                     <label>Player 2</label>
                     <br />
-                    <Field id='inputPlayer2' name='name2' placeholder='Oe'/>
+                    <div className = 'input-container'>
+                        <Field
+                            className='inputPlayer2 input'
+                            name='name2'
+                            placeholder='Oe'
+                            onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                            onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onMouseLeave={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                        />
+                        <div className='py'></div>
+                    </div>
                     <ErrorMessage name="name2" component='span'/>
                     <br />
                     <label>Player 3</label>
                     <br />
-                    <Field id='inputPlayer3' name='name3' placeholder='Oe'/>
+                    <div className = 'input-container'>
+                        <Field
+                            className='inputPlayer3 input'
+                            name='name3'
+                            placeholder='Oe'
+                            onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                            onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onMouseLeave={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                        />
+                        <div className='py'></div>
+                    </div>
                     <ErrorMessage name="name3" component='span'/>
                     <br />
                     <label>Player 4</label>
                     <br />
-                    <Field id='inputPlayer4' name='name4' placeholder='Oe'/>
+                    <div className = 'input-container'>
+                        <Field
+                            className='inputPlayer4 input'
+                            name='name4'
+                            placeholder='Oe'
+                            onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                            onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
+                            onMouseLeave={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
+                        />
+                        <div className='py'></div>
+                    </div>
                     <ErrorMessage name="name4" component='span'/>
                     <br />
                     <Link to = '/tournament'>
