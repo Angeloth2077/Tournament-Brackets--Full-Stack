@@ -1,0 +1,61 @@
+:root {
+    --accent: #20ffff;
+}
+
+.new-tournament {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.input-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.py {
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: black;
+    height: 4vh;
+    width: 15vw;
+    margin-bottom: 20px;
+    -moz-transform: skew(22deg, 0deg);
+    -webkit-transform: skew(22deg, 0deg);
+    -o-transform: skew(22deg, 0deg);
+    -ms-transform: skew(22deg, 0deg);
+    transform: skew(22deg, 0deg);
+    z-index: 1;
+}
+
+.py.focused {
+    background: linear-gradient(10deg, rgba(32,255,255,1) 0%, rgba(32,255,255,0.5) 10%, rgba(32,255,255,0.30155812324929976) 20%, rgba(32,255,255,0.1026785714285714) 40%, rgba(32,255,255,0) 55%);
+    border-color: var(--accent);
+    animation-name: fadeInOut;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0 }
+    35% { opacity: 0.5 }
+    100% { opacity: 1 }
+}
+
+.input {
+    border-width: 0;
+    background-color: rgba(0,0,0,0);
+    margin: 0 0 0 11px;
+    height:4vh; 
+    width: 15vw; 
+    position: absolute;
+    z-index: 2;
+    font-size: 1.0em;
+    color: white;
+    outline: none;
+}
+
+span {
+    color: red;
+    display: block;
+}
