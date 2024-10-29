@@ -39,14 +39,13 @@ export default function NewTournament() {
     return (
         <div className='new-tournament'>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-                <Form>
-                    <label>Player 1</label>
-                    <br />
+                <Form className='form'>
+                    <img className='logo' src='/resources/logo.png' />
                     <div className = 'input-container'>
                         <Field
                             className='inputPlayer1 input'
                             name='name1'
-                            placeholder='Oe'
+                            placeholder='Player 1'
                             onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
                             onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
                             onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
@@ -55,14 +54,11 @@ export default function NewTournament() {
                         <div className='py'></div>
                     </div>
                     <ErrorMessage name="name1" component='span'/>
-                    <br />
-                    <label>Player 2</label>
-                    <br />
                     <div className = 'input-container'>
                         <Field
                             className='inputPlayer2 input'
                             name='name2'
-                            placeholder='Oe'
+                            placeholder='Player 2'
                             onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
                             onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
                             onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
@@ -71,14 +67,11 @@ export default function NewTournament() {
                         <div className='py'></div>
                     </div>
                     <ErrorMessage name="name2" component='span'/>
-                    <br />
-                    <label>Player 3</label>
-                    <br />
                     <div className = 'input-container'>
                         <Field
                             className='inputPlayer3 input'
                             name='name3'
-                            placeholder='Oe'
+                            placeholder='Player 3'
                             onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
                             onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
                             onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
@@ -87,14 +80,11 @@ export default function NewTournament() {
                         <div className='py'></div>
                     </div>
                     <ErrorMessage name="name3" component='span'/>
-                    <br />
-                    <label>Player 4</label>
-                    <br />
                     <div className = 'input-container'>
                         <Field
                             className='inputPlayer4 input'
                             name='name4'
-                            placeholder='Oe'
+                            placeholder='Player 4'
                             onFocus={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
                             onBlur={(e) => e.target.closest('.input-container').querySelector('.py').classList.remove('focused')}
                             onMouseEnter={(e) => e.target.closest('.input-container').querySelector('.py').classList.add('focused')}
@@ -103,12 +93,19 @@ export default function NewTournament() {
                         <div className='py'></div>
                     </div>
                     <ErrorMessage name="name4" component='span'/>
-                    <br />
+                    <svg width="0" height="0">
+                      <defs>
+                        <clipPath id="clipper" clipPathUnits="objectBoundingBox">
+                          <path d="M0,0 0.79,0 0.83,0.5 0.79,1 0.81,1 0.85,0.5 0.81,0 0.86,0 0.9,0.5 0.86,1 0.88,1 0.92,0.5 0.88,0 0.93,0 0.97,0.5 0.93,1 0,1z" />
+                        </clipPath>
+                      </defs>
+                    </svg>
                     <Link to = '/tournament'>
                         <button type='submit'>Start Tournament</button>
                     </Link>
                 </Form>
             </Formik>
+            <img className='sz' src='/resources/sparking.png'/>
         </div>
     )
 }

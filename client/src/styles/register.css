@@ -1,12 +1,24 @@
 :root {
     --accent: #20ffff;
+    --fontSize: 25px;
+    --fontSizeSmall: 17px;
+    --butonBackgroundColor: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,234,0,1) 100%);
 }
 
 .new-tournament {
     display: flex;
-    justify-content: center;
-    margin-top: 10%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16%;
+    margin-left: 3%;
 }
+
+.form {
+    flex-direction: column;
+    align-content:center;
+    display: flex;
+}
+
 .input-container {
     position: relative;
     display: flex;
@@ -19,7 +31,7 @@
     border-color: black;
     height: 4vh;
     width: 15vw;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     -moz-transform: skew(22deg, 0deg);
     -webkit-transform: skew(22deg, 0deg);
     -o-transform: skew(22deg, 0deg);
@@ -50,7 +62,7 @@
     width: 15vw; 
     position: absolute;
     z-index: 2;
-    font-size: 1.0em;
+    font-size: var(--fontSizeSmall);
     color: white;
     outline: none;
 }
@@ -58,4 +70,34 @@
 span {
     color: red;
     display: block;
+}
+
+button {
+    background: var(--butonBackgroundColor);
+    border-width: 0;
+    border-radius: 5px 0 0 5px;
+    width: 20vw;
+    height: 4vh;
+    text-align: left;
+    font-size: var(--fontSize);
+    -webkit-clip-path: url(#clipper);
+    clip-path: url(#clipper);
+}
+
+.logo {
+    height: 20vh;
+    width: auto;
+    position: absolute;
+    top: 60px;
+    left: 3%;
+}
+
+.sz {
+    position: absolute;
+    right: 0;
+    height: 130vh;
+    width: auto;
+    margin-left: 380px;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
 }
