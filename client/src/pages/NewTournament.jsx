@@ -2,10 +2,11 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './../styles/register.css'
 
 export default function NewTournament() {
+    const navigate = useNavigate()
     const initialValues = {
         name1: "",
         name2: "",
@@ -24,6 +25,7 @@ export default function NewTournament() {
             console.log("It worked!", response)
             })
         })
+        navigate('/tournament')
     }
 
 // For the future, watch https://www.youtube.com/watch?v=lxroBmTiOhI&t=365s on 23:00
@@ -42,6 +44,7 @@ export default function NewTournament() {
                 <Form className='form'>
                     <img className='logo' src='/resources/logo.png' />
                     <div className = 'input-container'>
+                        {/* Fields and everything neeted for the style */}
                         <Field
                             className='inputPlayer1 input'
                             name='name1'
@@ -93,6 +96,8 @@ export default function NewTournament() {
                         <div className='py'></div>
                     </div>
                     <ErrorMessage name="name4" component='span'/>
+
+                    {/* For the button style */}
                     <svg width="0" height="0">
                       <defs>
                         <clipPath id="clipper" clipPathUnits="objectBoundingBox">
@@ -100,9 +105,8 @@ export default function NewTournament() {
                         </clipPath>
                       </defs>
                     </svg>
-                    <Link to = '/tournament'>
-                        <button type='submit'>Start Tournament</button>
-                    </Link>
+                    {/* Button Link */}
+                    <button className='start-btn' type='submit'>Start Tournament</button>
                 </Form>
             </Formik>
             <img className='sz' src='/resources/sparking.png'/>

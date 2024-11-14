@@ -10,8 +10,8 @@ function App() {
       <Router>
         <Link to='/'>Create a Tournament</Link>
         <br />
-        <Link to='/scoreboard'>Scoreboards</Link>
-        <br />
+        {/* <Link to='/scoreboard'>Scoreboards</Link>
+        <br /> */}
         <Link to='/tournament'>Tournament</Link>
         <Routes>
           <Route path='/' element={<NewTournament />} />

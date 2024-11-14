@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import '../styles/tournament.css'
 
 // Start Component
 export function Start() {
@@ -16,21 +17,24 @@ export function Start() {
 
     return(
         <>
-            {players.map((player, i) => (
-                <div key={i}>
-                    {player.name}
-                    <button onClick={() => {
-                        setPlayers(prevPlayers => {
-                            const updatedPlayers = [...prevPlayers]
-                            updatedPlayers[i].wins = 1
-                            return updatedPlayers
-                        })
-                    }}>
-                        Wins
-                    </button>
-                </div>
-            ))}
-            {/* Passing setPlayers down to Finals */}
+            <div className='phase phase1'>
+                {players.map((player, i) => (
+                    <div className={`player player-${i}`} key={i}>
+                        {player.name}
+                        <button className='bt' onClick={() => {
+                            setPlayers(prevPlayers => {
+                                const updatedPlayers = [...prevPlayers]
+                                updatedPlayers[i].wins = 1
+                                return updatedPlayers
+                            })
+                        }}>
+                            Wins
+                        </button>
+                    </div>
+
+                ))}
+                {/* Passing setPlayers down to Finals */}
+            </div>
             <Finals players={players} setPlayers={setPlayers} />
             <EndTournament setPlayers={setPlayers} />
         </>
@@ -44,22 +48,24 @@ export function Finals({ players, setPlayers }) {
 
     return(
         <>
-            {finalists.map((player, i) => (
-                <div key={i}>
-                    {player.name}
-                    <button onClick={() => {
-                        setPlayers(prevPlayers => {
-                            const updatedPlayers = [...prevPlayers];
-                            const index = prevPlayers.findIndex(p => p.name === player.name);
-                            updatedPlayers[index].wins2 = 1;
-                            return updatedPlayers;
-                        });
-                    }}>
-                        Winner
-                    </button> 
-                </div>
-            ))} 
+            <div className='phase phase2'>
+                {finalists.map((player, i) => (
+                    <div className={`player`} key={i}>
+                        {player.name}
+                        <button className='bt' onClick={() => {
+                            setPlayers(prevPlayers => {
+                                const updatedPlayers = [...prevPlayers];
+                                const index = prevPlayers.findIndex(p => p.name === player.name);
+                                updatedPlayers[index].wins2 = 1;
+                                return updatedPlayers;
+                            });
+                        }}>
+                            Winner
+                        </button> 
+                    </div>
+                ))} 
 
+            </div>
             <Winner finalists={finalists} />
         </>
     )
@@ -71,8 +77,8 @@ export function Winner({ finalists }) {
     const winner = finalists.find(player => player.wins2 === 1);
 
     return(
-        <div>
-            {winner ? <div>{winner.name} Wins</div> : <div>No winner yet</div>}
+        <div className='winner'>
+            {winner ? <div>{winner.name}</div> : <div>No winner yet</div>}
         </div>
     )
 }
@@ -91,11 +97,11 @@ export function EndTournament({ setPlayers }) {
 
     return (
         <>
-            <Link to = '/scoreboard'>
+            {/* <Link to = '/scoreboard'>
                 <button onClick={endTournament}>Scoreboard</button>
-            </Link>
-            <Link to = '/'>
-                <button onClick={endTournament}>Finish tournament</button>
+            </Link> */}
+            <Link to = '/'  className='finish-btn'>
+                <button className='fn-btn' onClick={endTournament}>Finish tournament</button>
             </Link>
         </>
     )

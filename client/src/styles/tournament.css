@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+.brackets {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+      text-shadow:
+      0 0 7px #ffffff9f,
+      0 0 10px #ffffff9f,
+      0 0 21px #ffffff9f,
+      0 0 50px #20ffff,
+      0 0 70px #20ffff,
+      0 0 80px #20ffff,
+      0 0 90px #20ffff,
+      0 0 100px #20ffff;
+}
+
+.phase {
+    display: flex;
+    justify-content: space-around;
+}
+.player {
+    font-size: 25px;
+    padding-inline: 70px;
+    display: flex;
+    flex-direction: column;
+}
+/* Phase 2 */
+.phase2 {
+    padding-bottom: 100px;
+}
+
+.winner {
+    padding-bottom: 100px;
+    font-size: 40px;
+}
+
+.finish-btn {
+    position: absolute;
+    padding-bottom: 100px;
+    bottom: 300px;
+    left: 883px;
+}
+
+.bt {
+    border: none;
+    background-color: #20ffff;
+}
+.fn-btn {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+}
