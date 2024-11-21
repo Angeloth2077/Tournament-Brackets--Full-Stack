@@ -5,47 +5,82 @@
     align-items: center;
     flex-direction: column-reverse;
     font-family: "M PLUS Rounded 1c", sans-serif;
-      text-shadow:
-      0 0 7px #ffffff9f,
-      0 0 10px #ffffff9f,
-      0 0 21px #ffffff9f,
-      0 0 50px #20ffff,
-      0 0 70px #20ffff,
-      0 0 80px #20ffff,
-      0 0 90px #20ffff,
-      0 0 100px #20ffff;
 }
 
 .phase {
     display: flex;
-    justify-content: space-around;
+    gap: 10vw;
+    padding-bottom: 200px;
 }
 .player {
     font-size: 25px;
-    padding-inline: 70px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-/* Phase 2 */
-.phase2 {
-    padding-bottom: 100px;
+
+.phase-ph {
+    height: auto;
+    display: flex;
+    gap: 28.5vw;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 200px;
+}
+.box {
+    position: relative; /* To position the pseudo-element */
+    height: 80px;
+    width: fit-content;
+    min-width: 150px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(0,45,93,1) 0%, rgba(0,15,28,1) 50%, rgba(25,7,73,1) 100%);
+    z-index: 1; /* Ensure content is above the pseudo-element */
+    overflow: hidden; /* Clip any overflow from the pseudo-element */
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 3px; /* Matches the border-width */
+    background: linear-gradient(90deg, rgb(1, 62, 128) 0%, rgba(0,15,28,1) 50%, rgb(41, 13, 119) 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1; /* Place behind the content */
+}
+
+
+
+
+.winner-box {
+    height: 80px;
+    width: 200px;
+    border-radius: 10px; 
+    background: linear-gradient(225deg, rgba(255,0,0,1) 0%, rgba(255,234,0,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .winner {
-    padding-bottom: 100px;
+    padding-bottom: 210px;
     font-size: 40px;
 }
 
 .finish-btn {
-    position: absolute;
     padding-bottom: 100px;
-    bottom: 300px;
-    left: 883px;
-}
-
-.bt {
-    border: none;
-    background-color: #20ffff;
 }
 .fn-btn {
     height: 50px;

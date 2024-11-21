@@ -15,72 +15,79 @@ export function Start() {
         }).catch(error => console.error('Error fetching players:', error))
     }, [])
 
-    return(
-        <>
-            <div className='phase phase1'>
-                {players.map((player, i) => (
-                    <div className={`player player-${i}`} key={i}>
-                        {player.name}
-                        <button className='bt' onClick={() => {
-                            setPlayers(prevPlayers => {
-                                const updatedPlayers = [...prevPlayers]
-                                updatedPlayers[i].wins = 1
-                                return updatedPlayers
-                            })
-                        }}>
-                            Wins
-                        </button>
-                    </div>
-
-                ))}
-                {/* Passing setPlayers down to Finals */}
-            </div>
-            <Finals players={players} setPlayers={setPlayers} />
-            <EndTournament setPlayers={setPlayers} />
-        </>
-    )
-}
-
-// Finals Component
-export function Finals({ players, setPlayers }) {
     // Filter players who have won in the first round
     const finalists = players.filter(player => player.wins === 1)
 
     return(
         <>
-            <div className='phase phase2'>
-                {finalists.map((player, i) => (
-                    <div className={`player`} key={i}>
-                        {player.name}
-                        <button className='bt' onClick={() => {
+            <EndTournament setPlayers={setPlayers} />
+            <div className='phase phase1'>
+                {players.map((player, i) => (
+                    <div className={`player player-${i} box`} key={i} onClick={() => {
                             setPlayers(prevPlayers => {
-                                const updatedPlayers = [...prevPlayers];
-                                const index = prevPlayers.findIndex(p => p.name === player.name);
-                                updatedPlayers[index].wins2 = 1;
-                                return updatedPlayers;
-                            });
-                        }}>
-                            Winner
-                        </button> 
+                                const updatedPlayers = [...prevPlayers]
+                                updatedPlayers[i].wins = 1
+                                return updatedPlayers
+                            })
+                    }}>
+                        {player.name}
                     </div>
-                ))} 
 
+                ))}
+                {/* Passing setPlayers down to Finals */}
             </div>
+            <Finals players={players} setPlayers={setPlayers} finalists={finalists} />
             <Winner finalists={finalists} />
         </>
     )
+}
+
+// Finals Component
+export function Finals({ players, setPlayers, finalists }) {
+    console.log(finalists)
+    if(finalists.length === 0){
+        return(
+            <div className='phase-ph'>
+                <div className='box'></div>
+                <div className='box'></div>
+            </div>
+        )
+    }else{
+        return(
+            <>
+                <div className='phase'>
+                    {finalists.map((player, i) => (
+                        <div className={`player box`} key={i} onClick={() => {
+                                setPlayers(prevPlayers => {
+                                    const updatedPlayers = [...prevPlayers];
+                                    const index = prevPlayers.findIndex(p => p.name === player.name);
+                                    updatedPlayers[index].wins2 = 1;
+                                    return updatedPlayers;
+                                });
+                        }}>
+                            {player.name}
+                        </div>
+                    ))} 
+                </div>
+            </>
+        )
+    }
 }
 
 // Winner Component
 export function Winner({ finalists }) {
     // Find the winner in the second round
     const winner = finalists.find(player => player.wins2 === 1);
-
-    return(
-        <div className='winner'>
-            {winner ? <div>{winner.name}</div> : <div>No winner yet</div>}
-        </div>
-    )
+    console.log(winner)
+    if(winner === undefined) {
+        return <div className='winner'> <div className='winner-box'></div></div>
+    }else{
+        return(
+            <div className='winner'>
+                {winner ? <div className='winner-box'>{winner.name}</div> : <div>No winner yet</div>}
+            </div>
+        )
+    }
 }
 
 // EndTournament Component
