@@ -5,13 +5,28 @@
     align-items: center;
     flex-direction: column-reverse;
     font-family: "M PLUS Rounded 1c", sans-serif;
+    gap: 25vh;
 }
 
-.phase {
+.match-1 {
+    display: flex;
+    gap: 15vw;
+}
+.match-2 {
+    display: flex;
+    gap: 15vw;
+}
+
+.phase{
     display: flex;
     gap: 10vw;
-    padding-bottom: 200px;
 }
+
+.phase-2 {
+    display: flex;
+    gap: 35.8vw;
+}
+
 .player {
     font-size: 25px;
     display: flex;
@@ -48,7 +63,7 @@
     bottom: 0;
     border-radius: 10px;
     padding: 3px; /* Matches the border-width */
-    background: linear-gradient(90deg, rgb(1, 62, 128) 0%, rgba(0,15,28,1) 50%, rgb(41, 13, 119) 100%);
+    background: linear-gradient(90deg, rgb(1, 62, 128) 0%, rgba(0,15,28,1) 50%, rgb(54, 17, 155) 100%);
     -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
@@ -60,7 +75,12 @@
     z-index: -1; /* Place behind the content */
 }
 
-
+.player-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .winner-box {
@@ -74,18 +94,3 @@
     justify-content: center;
 }
 
-.winner {
-    padding-bottom: 210px;
-    font-size: 40px;
-}
-
-.finish-btn {
-    padding-bottom: 100px;
-}
-.fn-btn {
-    height: 50px;
-    width: 200px;
-    border-radius: 10px;
-    border: none;
-    background-color: red;
-}

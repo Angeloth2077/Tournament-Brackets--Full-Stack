@@ -23,16 +23,17 @@ export function Start() {
             <EndTournament setPlayers={setPlayers} />
             <div className='phase phase1'>
                 {players.map((player, i) => (
-                    <div className={`player player-${i} box`} key={i} onClick={() => {
+                    <div className='player-container' key={i}>
+                        <div className={`player player-${i} box`} onClick={() => {
                             setPlayers(prevPlayers => {
                                 const updatedPlayers = [...prevPlayers]
                                 updatedPlayers[i].wins = 1
                                 return updatedPlayers
                             })
-                    }}>
-                        {player.name}
+                        }}>
+                            {player.name}
+                        </div><div className={`light-${i} lights`}></div>
                     </div>
-
                 ))}
                 {/* Passing setPlayers down to Finals */}
             </div>

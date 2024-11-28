@@ -1,0 +1,10 @@
+.finish-btn {
+    padding-bottom: 0px;
+}
+.fn-btn {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+}
